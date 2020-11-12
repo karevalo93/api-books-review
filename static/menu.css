@@ -1,0 +1,89 @@
+.header{
+    background: #ff0606;
+    color: white;
+    padding: 2em 0;
+    left: 0; top: 0; right: 0;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    letter-spacing: 5px;
+    font-size: 1.3em;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.menu ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu ul li{
+    display: inline-block;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+}
+
+.menu li  a:hover{
+    background-color: black;
+    border-radius: 40px;
+}
+
+
+
+@media only screen and (max-width: 767px){ 
+
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+    }
+    .menu {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .menu ul {
+        display: none;
+    }
+
+    .menu ul.show {
+        display: block;
+    }
+
+    .menu ul li{
+        display: block;
+    }
+    
+    .menu ul li a {
+        display: block;
+        padding: 0.5rem 0;
+        transition: all 0.4s linear;
+        border-radius: 40px;
+    }
+    
+    .menu li > a:hover{
+        background-color: black;
+        border-radius: 40px;
+        transition: all 0.4s linear;
+    }
+    
+}

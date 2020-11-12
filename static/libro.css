@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+/* .container {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.card {
+    width: 450px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+}
+
+.rat{
+    margin-top: 0px;
+    float: right;
+    width: 300px;
+    height: 500px;
+    background-color: green;
+}
+
+
+.footer {
+    top: auto;
+    background-color: grey;
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 6rem;
+}
+
+*/

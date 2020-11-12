@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}" />
+
+ 
+    <title>{{data.title}}</title>
+
+  </head>
+
+  <body>
+
+    <header class="header">
+      <div class="container logo-nav-container">
+        <a href="#" class="logo">BOOKS LOVERS</a>
+        <span class="menu-icon">Menú</span>
+        <nav class="menu">
+          <ul>
+            <li><a href="{{ url_for('index') }}">Inicio</a></li>
+            <li><a href="{{ url_for('logout') }}"> {{username}} Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header><br>
+
+
+    <div class="conta">
+      <h1>{{data.title}}</h1>
+      <div class="card">
+        Author:
+        <h3>{{data.author}}</h3>
+        Year:
+        <h3>{{data.year}}</h3>
+        Isbn:
+        <h3>{{data.isbn}}</h3>
+      </div>
+      <div class="card">
+        <br>
+        <br>
+        <h2>Goodread.com rating:</h2>
+        <h1>{{average_rating}}</h1>
+        <h5>Reviews received:</h5>
+        <h3>{{work_ratings_count}}</h3>
+      </div>
+    
+    <br><br>
+
+    {% if reviews != None %} {% for x in reviews %}
+    <div class="reviw">
+      <h6>Rating: {{x.rating}} of 5</h6>
+      <blockquote>
+        <p>{{x.review}}</p>
+        <footer>{{x.username}}</footer>
+      </blockquote>
+    </div>
+    {% endfor %} {% endif %}
+    
+<br><br>
+
+    <h3>{{warning}}</h3>
+
+    <div class="rat"><br><br>
+      <form action="{{url_for('bookpage',isbn=data.isbn)}}" method="POST">
+        <label >Write your review...</label>
+        <select name="stars" required>
+          <option selected value disabled>  select rating  </option>
+          <option value="1">1 star</option>
+          <option value="2">2 stars</option>
+          <option value="3">3 stars</option>
+          <option value="4">4 stars</option>
+          <option value="5">5 stars</option>
+        </select><br><br><br>
+        <textarea name="textarea"> </textarea>
+        <br>
+        <br>
+        <input type="submit" value="Send review" />
+      </form>
+    </div>
+  </div>
+  
+    <br><br>
+    <div class="footer"><a href="/api/{{data.isbn}}">API</a></div>
+  
+  </body>
+</html>

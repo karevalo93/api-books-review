@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+    <script src="https://kit.fontawesome.com/619fbefa7c.js" crossorigin="anonymous"></script>
+    <title>BOOKS LOVERS</title>
+    
+</head>
+<body>
+    <header class="header">
+        <div class="container logo-nav-container">
+            <a href="#" class="logo">BOOKS LOVERS</a>
+            <span class="menu-icon">Menú</span>
+            <nav class="menu">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li>{{username}}<a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div>{{log_in_message}}</div>
+
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log in</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <form id="login" class="input-group" action="{{url_for('login')}}" method="post">
+                <input type="email" class="input-field" placeholder="E-mail"  name="emailLogIn" required>
+                <input type="password" class="input-field" placeholder="Password" name="userPasswordLogIn" required>
+                <button type="submit" class="submit-btn">Log in</button>
+            </form>
+            <form id="register" class="input-group" action="{{url_for('login')}}" method="post">
+                <input type="email" class="input-field" placeholder="E-mail"  name="email"  required> 
+                <input type="password" class="input-field" placeholder="Password" onkeyup="passwordMatch()"  name="userPassword" required>
+                <input type="password" class="input-field" placeholder="Repeat Password" onkeyup="passwordMatch()" name="userPasswordRepeat" required>
+                <input type="checkbox" class="chech-box"><span>I agree to the terms</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+ 
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+</body>
+</html>
+

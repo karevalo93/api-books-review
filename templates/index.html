@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}"/>  
+    <link rel="stylesheet" href="{{ url_for('static', filename='inicio.css') }}"/>  
+ 
+    <script src="https://kit.fontawesome.com/619fbefa7c.js" crossorigin="anonymous"></script>
+
+    <title>BOOKS</title>
+
+  </head>
+
+  <body>
+    
+    <header class="header">
+      <div class="container logo-nav-container">
+        <a href="#" class="logo">BOOKS LOVERS</a>
+        <span class="menu-icon">Menú</span>
+        <nav class="menu">
+          <ul>
+            <li><a href="{{ url_for('index') }}">Inicio</a></li>
+            <li><a href="{{ url_for('logout') }}">{{username}} Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header><br><br>
+
+    <div>{{message}}</div><br><br>
+
+    <form class="buscar" action="{{url_for('index')}}" method="POST">
+      <input type="text" class="buscar_text" placeholder="Search a Book" name="text" />
+      <a href="" class="boton" type="submit" > <i class="fas fa-search"></i> </a>
+    </form><br><br>
+    
+    <div class="lista">
+      {% for x in data %}
+      <a href="/isbn/{{x.isbn}}">
+        <ul>
+        <li><h2>{{x.title}}</h2></li>
+         by {{x.author}} in {{x.year}} 
+        <h6>isbn: {{x.isbn}}</h6></a>
+      </ul>
+      {% endfor %}
+    </div>
+  
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+  </body>
+</html>
